@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🖼️ Редактор изображений | Анимированный фон</title>
+    <link rel="stylesheet" href="style.css.css">
+</head>
+<body>
+
+<div class="white-card">
+    <h2>🖼️ Редактор изображений</h2>
+    <div class="subhead">Загружайте, редактируйте и скачивайте изображения с лёгкостью</div>
+
+    <!-- зона загрузки -->
+    <div id="dropArea" class="drop-area">
+        <p>📎 Перетащите изображение сюда<br/>или кликните для выбора файла</p>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    </div>
+
+    <!-- превью контейнер -->
+    <div class="image-preview-area">
+        <div id="noImage">📷 Изображение появится здесь после загрузки</div>
+        <img id="preview" style="display:none;" alt="preview">
+    </div>
+
+    <!-- Размеры -->
+    <div class="section-title"> Размеры изображения</div>
+    <div class="flex-row">
+        <div class="input-group">
+            <label>Ширина (px):</label>
+            <input type="number" id="width" step="1" min="10">
+        </div>
+        <div class="input-group">
+            <label>Высота (px):</label>
+            <input type="number" id="height" step="1" min="10">
+        </div>
+    </div>
+
+    <!-- Настройки яркость/контраст -->
+    <div class="section-title"> Настройки изображения</div>
+    <div class="flex-row">
+        <div class="input-group">
+            <label>Яркость</label>
+            <input type="range" id="brightness" min="0" max="200" value="100">
+            <span id="brightnessValue" class="slider-value">100%</span>
+        </div>
+        <div class="input-group">
+            <label>Контрастность</label>
+            <input type="range" id="contrast" min="0" max="200" value="100">
+            <span id="contrastValue" class="slider-value">100%</span>
+        </div>
+    </div>
+
+    <!-- Эффекты -->
+    <div class="section-title"> Эффекты</div>
+    <div class="effects-grid">
+        <div class="input-group">
+            <label>Размытие (px):</label>
+            <input type="range" id="blur" min="0" max="10" step="0.1" value="0">
+            <span id="blurValue" class="slider-value">0px</span>
+        </div>
+        <div class="input-group">
+            <label>Сепия:</label>
+            <input type="range" id="sepia" min="0" max="100" value="0">
+            <span id="sepiaValue" class="slider-value">0%</span>
+        </div>
+        <div class="btn-icon-group">
+            <button id="rotateBtn">↻ Повернуть на 90°</button>
+            <button id="resetEffects">⟳ Сбросить эффекты</button>
+        </div>
+    </div>
+
+    <!-- главные кнопки действий -->
+    <div class="effects-controls">
+        <button id="applyBtn" disabled>✅ Применить изменения</button>
+        <button id="resetBtn" disabled>🔄 Сбросить всё</button>
+        <button id="downloadBtn" disabled>⬇️ Скачать изображение</button>
+    </div>
+
+    <!-- Информация о файле -->
+    <div class="section-title">📄 Информация о файле</div>
+    <div id="fileInfo" class="info-panel" style="display:none;">
+        <p><span class="info-label">📁 Файл:</span> <span id="fileName"></span></p>
+        <p><span class="info-label">📦 Размер:</span> <span id="fileSize"></span></p>
+        <p><span class="info-label">🖼️ Оригинальный размер:</span> <span id="originalSize"></span></p>
+        <p><span class="info-label">✨ После преобразования:</span> <span id="newSize"></span></p>
+    </div>
+    <hr>
+    <div class="footer-note">Изменения применяются после нажатия «Применить»</div>
+</div>
+
+<script src="script.js.js"></script>
+</body>
+</html>
